@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+
+    #container {
+        width:500px;
+        height:500px;
+        margin:0 auto;
+        background: palegoldenrod;
+    }
+</style>
+</head>
+<body>
+<div id="container"></div>
+<script src="../../lib/hilo-standalone.js"></script>
+<script>
+    var containerElem = document.getElementById('container');
+    // 创建舞台
+    var stage = new Hilo.Stage({
+        renderType:'canvas',
+        container: containerElem,
+        width: 320,
+        height: 480
+    });
+
+    // 创建定时器
+    var ticker = new Hilo.Ticker(60);
+    ticker.addTick(stage);
+    ticker.start();
+
+    var fish = new Hilo.Bitmap({
+        image: '../../images/fish.png'
+    }).addTo(stage);
+
+//    stage.enableDOMEvent(Hilo.event.POINTER_START, true);
+//    sprite.on(Hilo.event.POINTER_START, function(e){
+//        console.log(e.eventTarget, e.stageX, e.stageY);
+//    });
+</script>
+</body>
+</html>
